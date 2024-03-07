@@ -6,3 +6,4 @@ bin
 make.bat
 Makefile
 pyvenv.cfg
+lib64
