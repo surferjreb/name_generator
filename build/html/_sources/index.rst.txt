@@ -29,7 +29,7 @@ not get far.
    :caption: Table of Contents:
    :name: mastertoc
 
-usage
+   usage
 
 .. note::
 

@@ -1,0 +1,21 @@
+Usage
+=====
+
+Installation
+------------
+
+To use Name generator you can excute it from main or import it
+
+.. code-block:: console
+
+   (venv) $ py main.py
+
+This will create a list of non-unique names from the default files.
+
+.. code-block:: console
+
+   (venv) $ from name_generator import NameGenerator
+   (venv) $ ngen = NameGenerator()
+   (venv) $ ngen.generate()
+   (venv) $ ngem.output()
+

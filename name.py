@@ -1,5 +1,6 @@
 '''
-
+    The name class used for name object that is created
+    @author: James R Brown
 
 '''
 
