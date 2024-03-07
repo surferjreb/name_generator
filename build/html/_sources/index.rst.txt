@@ -1,0 +1,45 @@
+.. Name Generator documentation master file, created by
+   sphinx-quickstart on Wed Mar  6 21:17:54 2024.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Name Generator's documentation!
+==========================================
+
+**Name Generator** simply creates random names upon request.  This can
+and does have a roof depending on whether the names are to be unique.
+Once this is identified, depending on the number of values in each
+source file(which should match).  A simple combination calculation
+needs to be made to determine the outcome.
+
+**Example:**
+            | 100 first names in first_names.py
+            | 100 last names in last_names.py
+            | 100 total names
+            | Unique Combinations: 9,900
+            | Combinations: 499,950
+
+**Note:** This can be modified by increasing or decresing the names.  It
+would be a good idea to keep the files equal in length.  If not you will
+not get far.
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Table of Contents:
+   :name: mastertoc
+
+usage
+
+.. note::
+
+   This project is under active development
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

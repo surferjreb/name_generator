@@ -1,0 +1,8 @@
+venv
+source
+lib
+include
+bin
+make.bat
+Makefile
+pyvenv.cfg
