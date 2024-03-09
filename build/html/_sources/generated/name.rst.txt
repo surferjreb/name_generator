@@ -1,0 +1,29 @@
+﻿name
+====
+
+.. automodule:: name
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Name
+   
+   
+
+   
+   
+   
+
+
+

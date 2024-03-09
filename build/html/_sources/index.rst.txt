@@ -30,6 +30,7 @@ not get far.
    :name: mastertoc
 
    usage
+   api
 
 .. note::
 
