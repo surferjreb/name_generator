@@ -82,6 +82,9 @@ class Names:
     '''
     def __init__(self):
         self.names = []
+        self.FIRST_NAMES = FIRST_NAMES
+        self.LAST_NAMES = LAST_NAMES
+        self.MIDDLE_NAMES = MIDDLE_NAMES
 
     def get_names(self):
         '''
@@ -94,6 +97,15 @@ class Names:
         return self.names
 
     def add_name(self, name):
+        '''
+            Adds a name object to the names list if it is not None
+
+            :param name: a Name object
+            :type name: name.Name
+            :raise name.Exception: if fails to add name to list
+
+        '''
+
         try:
             if name is not None:
                 self.names.append(name)

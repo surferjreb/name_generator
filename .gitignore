@@ -7,3 +7,4 @@ make.bat
 Makefile
 pyvenv.cfg
 lib64
+tests/__pycache__

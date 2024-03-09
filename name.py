@@ -10,10 +10,10 @@ class Name:
            :methods:
 
     '''
-    def __init__(self, firstName='jane', lastName='doe', middleName=None):
-        self.firstName = self._set_name(firstName)
-        self.lastName = self._set_name(lastName)
-        self.middleName = self._set_name(middleName)
+    def __init__(self, firstName=None, lastName=None, middleName=None):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.middleName = middleName
 
     def get_firstName(self):
         '''
@@ -23,7 +23,9 @@ class Name:
             :return: first name string
             :rtype: str
         '''
-        return str(self.firstName, 'utf-8', 'strict')
+        if type(self.firstName) is bytes:
+            return str(self.firstName, 'utf-8', 'strict')
+        return self.firstName
 
     def get_lastName(self):
         '''
@@ -33,7 +35,9 @@ class Name:
             :rtype: str
 
         '''
-        return str(self.lastName, 'utf-8', 'strict')
+        if type(self.lastName) is bytes:
+            return str(self.lastName, 'utf-8', 'strict')
+        return self.lastName
 
     def get_middleName(self):
         '''
@@ -43,7 +47,9 @@ class Name:
             :rtype: str
 
         '''
-        return str(self.middleName, 'utf-8', 'strict')
+        if type(self.middleName) is bytes:
+            return str(self.middleName, 'utf-8', 'strict')
+        return self.middleName
 
     def set_firstName(self, firstName):
         '''
@@ -67,6 +73,17 @@ class Name:
         '''
         self.lastName = self._set_name(lastName)
 
+    def set_middleName(self, middleName):
+        '''
+           Sets a new str byte value using the string middleName paramater.  This
+           saves to class variable middleName
+
+           :param middleName: The string value for middleName
+           :type middleName: str
+
+        '''
+        self.middleName = self._set_name(middleName)
+
     def _set_name(self, name):
         '''
             Takes a string input and encodes it into a byte value.  Returns
@@ -82,22 +99,35 @@ class Name:
         temp_name = None
 
         try:
-            temp_name = str(name.lower()).encode(encoding='utf-8', errors='strict')
+            if name is not None:
+                name = name.lower()
+                temp_name = str(name).encode(encoding='utf-8', errors='strict')
             return temp_name
         except Exception:
             raise Exception('set name failed')
 
+    def __str__(self):
+        '''
+
+            Returns a string representation of the class
+
+        '''
+        if self.middleName is None or self.middleName == b' ':
+            return f'{self.get_firstName()} {self.get_lastName()}'
+        elif self.middleName == ' ':
+            return f'{self.get_firstName()} {self.get_lastName()}'
+        n = '{} {} {}'.format(self.get_firstName(),
+                              self.get_middleName(), self.get_lastName())
+        return n
+
     def __repr__(self):
         '''
-            Returns str format of name depending on the value in middleName.
 
-            :returns: name string
+            Returns the raw values in name.
+
+            :returns: name values
             :rtype: str
 
         '''
-        if self.middleName == b'None':
-            return f'{self.get_firstName()} {self.get_lastName()}'
 
-        return '{} {} {}'.format(self.get_firstName(), self.get_middleName(),
-                                 self.get_lastName()
-                                 )
+        return f'{self.firstName} {self.middleName} {self.lastName}'
