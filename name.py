@@ -1,3 +1,4 @@
+from enum import Enum
 
 
 class Name:
@@ -14,42 +15,66 @@ class Name:
         self.firstName = firstName
         self.lastName = lastName
         self.middleName = middleName
+        self.NameTypes = Enum('NameTypes', 'FIRST MIDDLE LAST')
 
     def get_firstName(self):
         '''
-
             Returns first name as a new string.
 
-            :return: first name string
+            :return: first name string or empty string
             :rtype: str
         '''
-        if type(self.firstName) is bytes:
-            return str(self.firstName, 'utf-8', 'strict')
-        return self.firstName
+
+        return self._get_name(self.NameTypes.FIRST)
 
     def get_lastName(self):
         '''
-            Returns last name as a new string.
+            Returns last name string or empty string.
 
             :return: last name string
             :rtype: str
 
         '''
-        if type(self.lastName) is bytes:
-            return str(self.lastName, 'utf-8', 'strict')
-        return self.lastName
+        return self._get_name(self.NameTypes.LAST)
 
     def get_middleName(self):
         '''
-            Returns last name as a new string.
+            Returns middle name string or empty string.
 
-            :return: last name string
+            :return: middle name string
             :rtype: str
 
         '''
-        if type(self.middleName) is bytes:
-            return str(self.middleName, 'utf-8', 'strict')
-        return self.middleName
+        return self._get_name(self.NameTypes.MIDDLE)
+
+    def _get_name(self, NameTypes):
+        '''
+            Returns the name type depending on the type value set.  If the
+            value is None this returns an empty string.  If contains a bytes
+            value it converts this to a str and capitalizes.  Does the same for
+            a string value in name field.
+
+            :return: name field string
+            :rtype: str
+
+        '''
+        temp = None
+
+        match NameTypes.value:
+            case 1:
+                temp = self.firstName
+            case 2:
+                temp = self.middleName
+            case 3:
+                temp = self.lastName
+
+        if temp is None:
+            return ' '
+
+        if type(temp) is bytes:
+            return str(temp, 'utf-8', 'strict').capitalize()
+
+        return temp.capitalize()
 
     def set_firstName(self, firstName):
         '''
@@ -104,7 +129,7 @@ class Name:
                 temp_name = str(name).encode(encoding='utf-8', errors='strict')
             return temp_name
         except Exception:
-            raise Exception('set name failed')
+            raise TypeError('Set name failed, invalid input')
 
     def __str__(self):
         '''
