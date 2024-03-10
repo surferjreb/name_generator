@@ -2,6 +2,7 @@ import random as rand
 from name import Name
 from names import Names
 
+
 class NameGen:
     '''
         The name generator class is as it implies, it generates the names
