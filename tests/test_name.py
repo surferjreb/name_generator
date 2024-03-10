@@ -1,6 +1,10 @@
 from name import Name
 import pytest
 
+'''
+    Test for the Name Class
+'''
+
 
 @pytest.fixture
 def default_name():

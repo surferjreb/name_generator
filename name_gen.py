@@ -1,6 +1,6 @@
 import random as rand
 from name import Name
-
+from names import Names
 
 class NameGen:
     '''
@@ -12,7 +12,7 @@ class NameGen:
 
     '''
 
-    def __init__(self, amount=100, unique=False, names=None):
+    def __init__(self, amount=100, unique=False, names=Names()):
         self.amount = amount
         self.unique = unique
         self.names = names
